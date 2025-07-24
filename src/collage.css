@@ -1,0 +1,140 @@
+.collage-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 4px;
+  overflow: hidden; /* Ensure nothing spills out */
+}
+
+.collage-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr auto auto 1fr; /* Four rows now */
+  gap: 8px;
+  width: 100%;
+  aspect-ratio: 2 / 1.5; /* Adjusted aspect ratio to accommodate new sections */
+  background-color: white;
+  background-size: cover;
+  position: relative;
+}
+
+.collage-box {
+  position: relative;
+  background-color: rgba(255, 249, 249, 0.414);
+  background-size: cover;
+  background-position: center;
+  color: rgba(255, 255, 255, 0.952);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: clamp(1rem, 2vw, 1.8rem); /* Responsive font size */
+  font-weight: bold;
+  text-shadow: 2px 2px 5px black;
+  transition: transform 0.3s ease;
+  overflow: hidden;
+}
+
+.collage-box:hover {
+  transform: scale(1.05);
+  background-color: rgba(204, 35, 35, 0.449);
+  color: white;
+}
+
+/* Slant directions - keeping exact same clip paths */
+.top-left {
+  background-image: url('./assets/colage1.jpg');
+  clip-path: polygon(0 0, 100% 0%, 83% 100%, 0% 100%);
+  margin-right: 60px;
+  z-index: 2;
+}
+
+.top-right {
+  clip-path: polygon(13% 0, 100% 0, 100% 100%, 0% 100%);
+  margin-left: -120px;
+  z-index: 1;
+}
+
+.bottom-left {
+  margin-right: -90px;
+  clip-path: polygon(0 0, 100% 0%, 84% 100%, 0% 100%);
+  z-index: 1;
+}
+
+.bottom-right {
+  background-image: url('./assets/colage2.jpg');
+  clip-path: polygon(18% 0, 100% 0, 100% 100%, 0% 100%);
+  margin-left: -1px;
+  z-index: 2;
+}
+
+/* New middle parallelogram sections */
+.mid-upper, .mid-lower {
+  grid-column: 1 / span 2; /* Spans full width */
+  height: 70px;
+  background-color: rgba(0, 0, 0, 0.7);
+  margin: 0 -50px; /* Extend beyond the container */
+  z-index: 3;
+  transform: skewY(-2deg); /* Slight skew for parallelogram effect */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mid-upper {
+  background-image: linear-gradient(to right, #c1272d, #0e56c8);
+  clip-path: polygon(0 20%, 100% 0%, 100% 80%, 0% 100%);
+}
+
+.mid-lower {
+  background-image: linear-gradient(to right, #0e56c8, #c1272d);
+  clip-path: polygon(0 0%, 100% 20%, 100% 100%, 0% 80%);
+}
+
+.mid-upper .label, .mid-lower .label {
+  transform: skewY(2deg); /* Counter the skew to keep text straight */
+  font-size: clamp(1rem, 2.5vw, 2rem);
+  color: white;
+  letter-spacing: 2px;
+}
+
+.label {
+  z-index: 2;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .collage-grid {
+    aspect-ratio: 2 / 2; /* More squared for medium screens */
+    grid-template-rows: 1fr 60px 60px 1fr; /* Adjust middle row heights */
+  }
+  
+  .mid-upper, .mid-lower {
+    height: 60px;
+  }
+  
+  .label {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .collage-grid {
+    aspect-ratio: 2 / 2.5; /* Taller for mobile */
+    grid-template-rows: 1fr 50px 50px 1fr; /* Further adjust row heights */
+  }
+  
+  .mid-upper, .mid-lower {
+    height: 50px;
+  }
+  
+  .collage-box {
+    font-size: clamp(0.8rem, 3vw, 1rem);
+  }
+  
+  .mid-upper .label, .mid-lower .label {
+    font-size: clamp(0.7rem, 2.5vw, 1rem);
+    letter-spacing: 1px;
+  }
+}

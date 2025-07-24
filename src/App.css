@@ -1,0 +1,333 @@
+/* Background and layout */
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+
+
+.main-container {
+  min-height: 100vh;       /* Use min-height instead of height for better responsiveness */
+  width: 100%;             /* Don't use vw to avoid horizontal scrolling issues */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2.5rem;
+}
+
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* Text Section */
+.text-section {
+  z-index: 10;
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.text-section h1 {
+  font-size: 5rem;
+  font-family: 'Permanent Marker', cursive;
+  font-weight: 980;
+  margin-bottom: 1.9rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Team Container Styles */
+.team-container-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.team-containers {
+  display: flex;
+  justify-content: flex-start;
+  gap: 12px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.team-box {
+  background-color: #f71d00af;
+  color: rgb(244, 234, 234);
+  font-weight: bold;
+  padding: 7px 16px;
+  width: 275px;
+  height:50px;
+  text-align: center;
+  font-size: 1rem;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.team-box:hover{
+  background-color:rgb(112,32,34);
+}
+
+/*grid*/
+
+/* Add these styles to your App.css file */
+
+/* Replace the image grid with rectangles */
+.image-rectangles {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  max-width: 500px;
+  margin: 40px auto 0;
+  padding: 0 20px;
+  gap: 30px;
+}
+
+.rectangle-container {
+  flex: 1;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rectangle-container:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.rectangle-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.rectangle-container:hover img {
+  transform: scale(1.05);
+}
+
+.rectangle-container .overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  padding: 20px;
+  color: white;
+  transition: opacity 0.3s ease;
+}
+
+.rectangle-container h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.uefa-container {
+  border-bottom: 4px solid #0e56c8;
+}
+
+.ipl-container {
+  border-bottom: 4px solid #c1272d;
+}
+
+/* Responsive styles for the rectangles */
+@media (max-width: 768px) {
+  .image-rectangles {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .rectangle-container {
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .image-rectangles {
+    padding: 0 10px;
+  }
+  
+  .rectangle-container h2 {
+    font-size: 1.2rem;
+  }
+}
+
+
+/* Navigation */
+.top-nav {
+  width: 100%;
+  padding: .01rem .0rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(9, 25, 72, 0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  height: 50pt;
+}
+
+.logo img {
+  height: 90px;
+  /* width: 200px; */
+  padding-left: 7%;
+  padding-top: 3%;
+  object-fit: contain;
+}
+
+.nav-links {
+  display: flex;
+  gap: .5rem;
+}
+
+.nav-links a {
+  color: white;
+  font-size: 13pt;
+  text-decoration: rgb(241, 170, 241);
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  transition: color 0.3s;
+  padding-right: 9pt;
+}
+
+.nav-links a:hover {
+  color: #e50914;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1024px) {
+  .text-section h1 {
+    font-size: 3.5rem;
+  }
+  
+  .image-grid {
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 80px;
+    padding-bottom: 40px;
+    overflow-y: auto;
+  }
+  
+  .text-section {
+    max-width: 100%;
+    margin-bottom: 2rem;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .text-section h1 {
+    font-size: 2.8rem;
+    
+    margin-top: 1.5rem;
+  }
+  
+  .countdown-container {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  .team-container-wrapper {
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .team-containers {
+    justify-content: center;
+  }
+  
+  .team-box {
+    width: 150px;
+  }
+  
+  .image-grid {
+    margin-top: 2rem;
+    margin-right: 0;
+    justify-self: center;
+    align-self: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-container {
+    padding: 70px 1rem 40px 1rem;
+  }
+  
+  .text-section h1 {
+    font-size: 2rem;
+  }
+  
+  .time-value {
+    font-size: 1.5rem;
+  }
+  
+  .time-label {
+    font-size: 0.6rem;
+  }
+  
+  .team-containers {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .team-box {
+    width: 100%;
+  }
+  
+  .nav-links {
+    gap: 0.3rem;
+  }
+  
+  .nav-links a {
+    font-size: 9pt;
+    padding-right: 5pt;
+  }
+}
+.spacer{
+  height: 10px;
+  
+}
+@media (max-width: 480px) {
+  .spacer {
+    height: 10px;
+    
+  }
+}
+
+
+
+
+
+
+
+/* Add this to App.css */
+.faq-wrapper {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}

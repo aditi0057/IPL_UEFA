@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+.home-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 100px;
+  background-color: #ffffff;
+  gap: 60px;
+  flex-wrap: wrap;
+  max-width: 100%;
+  overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+.banner-left {
+  max-width: 600px;
+  flex-shrink: 0;
+  display: block;
+}
+
+.banner-image {
+  width: 100%;
+  height: auto;
+  max-width: 500px;
+  clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+  transform: translateY(-100px);
+  margin-left: 40px;
+  transition: all 0.5s ease;
+}
+
+.banner-right {
+  max-width: 800px;
+  perspective: 800px;
+  margin-top: -100px;
+  width: 100%; /* Ensure it takes full width on small screens */
+}
+
+.club-tag {
+  font-family: "Permanent Marker", cursive;
+  color: #c1272d;
+  font-weight: bold;
+  font-size: 38px;
+  letter-spacing: 1px;
+  margin-left: -105px;
+  word-wrap: break-word; /* Allow long words to break */
+  transition: all 0.5s ease;
+}
+
+.banner-heading {
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: #0d0d0d;
+  margin: 16px 0;
+  line-height: 1.3;
+  margin-left: -105px;
+  word-wrap: break-word; /* Allow long words to break */
+  transition: all 0.5s ease;
+}
+
+.banner-text {
+  font-size: 1.35rem;
+  color: #333232;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  margin-left: -105px;
+  word-wrap: break-word; /* Allow long words to break */
+  transition: all 0.5s ease;
+}
+
+.history-button {
+  padding: 14px 28px;
+  border: 2px solid #c1272d;
+  color: #c1272d;
+  background: transparent;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-size: 1rem;
+  margin-left: 130px;
+}
+
+.history-button:hover {
+  background-color: #c1272d;
+  color: white;
+}
+
+/* Content transition class */
+.content-transition {
+  opacity: 1;
+  transform-origin: center;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* ✅ Responsive adjustments for desktop shrink */
+@media (max-width: 1440px) {
+  .banner-image {
+    max-width: 400px;
+  }
+}
+
+/* 🔥 Responsive design for ≤1311px (image removed and text centered) */
+@media (max-width: 1311px) {
+  .banner-left {
+    display: none;
+  }
+
+  .home-banner {
+    padding: 60px 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .banner-right {
+    margin-top: 0;
+    max-width: 100%; /* Ensure content fits within container */
+    padding: 0 15px; /* Add horizontal padding */
+  }
+
+  .club-tag,
+  .banner-heading,
+  .banner-text,
+  .history-button {
+    margin-left: 0;
+    text-align: center;
+    max-width: 100%; /* Ensure content fits within container */
+  }
+
+  .banner-heading {
+    font-size: 2.5rem;
+  }
+
+  .banner-text {
+    font-size: 1.1rem;
+  }
+
+  .history-button {
+    margin-left: 0;
+  }
+}
+
+/* Additional media query for small phones */
+@media (max-width: 480px) {
+  .home-banner {
+    padding: 40px 15px;
+  }
+  
+  .banner-right {
+    padding: 0 10px;
+  }
+  
+  .club-tag {
+    font-size: 28px;
+  }
+  
+  .banner-heading {
+    font-size: 1.8rem;
+  }
+  
+  .banner-text {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  .history-button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    width: auto; /* Let the button adjust to content */
+  }
+}

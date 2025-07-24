@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+/* Overall Container */
+.contact-container {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #293145;
+    padding: 2rem 0;
+    color: white;
+  }
+
+  .contact-copyright{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    margin-top: 1.2rem;
+
+  }
+  
+  /* Heading */
+  .contact-heading {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    font-family: 'Permanent Marker', cursive;
+  }
+  
+  /* Box Container */
+  .contact-boxes {
+    display: flex;
+    width: 100vw;
+    height: 14rem;
+    transition: all 0.4s ease-in-out;
+  }
+  
+  /* Common Box Styles */
+  .contact-box {
+    flex: 1;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    overflow: hidden;
+  }
+  
+  /* Left Box */
+  .left-box {
+    background-color: rgb(183,54,47); /* Dark Blue */
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 3rem;
+    clip-path: polygon(0 0, 100% 0%, 83% 100%, 0% 100%);
+    font-family: 'Segoe UI', sans-serif;
+    transition: flex 0.4s ease-in-out;
+  }
+  
+  /* Right Box */
+  .right-box {
+    background-color: rgb(249,249,249); /* Dark Red */
+    justify-content: space-evenly;
+    clip-path: polygon(17% 0, 100% 0, 100% 100%, 0% 100%);
+    transition: flex 0.4s ease-in-out;
+  }
+
+  .left-box:hover {
+    flex: 2;
+  }
+  
+  .right-box:hover {
+    flex: 2;
+  }
+  
+  /* Contact Items (Left Box) */
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Icons in Left Box */
+  .icon {
+    font-size: 1.5rem;
+  }
+  
+  /* Social Icons (Right Box) */
+  .social-icon {
+    font-size: 2.5rem;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  /* Spacing Between Social Icons */
+  .right-box a {
+    margin: 0 1.5rem;
+  }
+  
+  /* Social Icon Colors */
+  .linkedin { color: #0a66c2; }
+  .instagram { color: #e1306c; }
+  .youtube { color: #ff0000; }
+  
+  /* Hover Effect */
+  .social-icon:hover {
+    transform: scale(1.2);
+  }
+
+  @media (max-width: 768px) {
+    .contact-boxes {
+        flex-direction: column;
+        height: auto;
+    }
+    .left-box, .right-box {
+        flex: none;
+        width: 100vw;
+        height: 10rem;
+        clip-path: none;
+        padding: 1rem;
+        text-align: center;
+    }
+    .right-box {
+        flex-direction: row;
+        justify-content: center;
+    }
+    .social-icon {
+        font-size: 1.8rem;
+        margin: 0 1rem;
+    }
+}
+
+/* For Small Phones (max-width: 480px) */
+@media (max-width: 480px) {
+    .contact-heading {
+        font-size: 1.5rem;
+    }
+    .contact-item {
+        font-size: 0.9rem;
+    }
+    .social-icon {
+        font-size: 1.6rem;
+    }
+    .contact-copyright {
+        font-size: 1rem;
+    }
+}
